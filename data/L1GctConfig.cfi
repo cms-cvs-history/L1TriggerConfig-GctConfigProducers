@@ -1,0 +1,39 @@
+es_module = L1GctConfigProducers {
+
+   double L1CaloHtScaleLsbInGeV = 1.0
+   double L1CaloJetZeroSuppressionThresholdInGeV = 5.0
+
+   # Coefficients for power series correction of jet energies by eta bin.
+   # Eta bins run from 0-10 with 0 being central and 7-10 in the HF.
+   # An empty vector gives (energy-out = energy-in)
+
+   # These coefficients for non-tau jets
+   vdouble nonTauJetCalib0 = {}
+   vdouble nonTauJetCalib1 = {}
+   vdouble nonTauJetCalib2 = {}
+   vdouble nonTauJetCalib3 = {}
+   vdouble nonTauJetCalib4 = {}
+   vdouble nonTauJetCalib5 = {}
+   vdouble nonTauJetCalib6 = {}
+   vdouble nonTauJetCalib7 = {}
+   vdouble nonTauJetCalib8 = {}
+   vdouble nonTauJetCalib9 = {}
+   vdouble nonTauJetCalib10 = {}
+
+   # These coefficients for tau jets
+   vdouble tauJetCalib0 = {}
+   vdouble tauJetCalib1 = {}
+   vdouble tauJetCalib2 = {}
+   vdouble tauJetCalib3 = {}
+   vdouble tauJetCalib4 = {}
+   vdouble tauJetCalib5 = {}
+   vdouble tauJetCalib6 = {}
+}
+
+es_source jetcalrcdsrc = EmptyESSource {
+    string recordName = "L1GctJetCalibFunRcd"
+    vuint32 firstValid = { 1 }
+    bool iovIsRunNotTime = false
+}
+
+
