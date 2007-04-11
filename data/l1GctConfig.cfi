@@ -30,10 +30,3 @@ es_module = L1GctConfigProducers {
    vdouble tauJetCalib6 = {}
 }
 
-es_source jetcalrcdsrc = EmptyESSource {
-    string recordName = "L1GctJetCalibFunRcd"
-    vuint32 firstValid = { 1 }
-    bool iovIsRunNotTime = false
-}
-
-
