@@ -4,4 +4,4 @@ es_source l1GctConfigRecords = EmptyESSource {
     bool iovIsRunNotTime = false
 }
 
-#include "L1TriggerConfig/GctConfigProducers/data/l1GctConfig.cfi"
+include "L1TriggerConfig/GctConfigProducers/data/l1GctConfig.cfi"
