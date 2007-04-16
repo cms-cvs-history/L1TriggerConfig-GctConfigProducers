@@ -1,0 +1,7 @@
+es_source l1GctConfigRecords = EmptyESSource {
+    string recordName = "L1GctJetCalibFunRcd"
+    vuint32 firstValid = { 1 }
+    bool iovIsRunNotTime = false
+}
+
+include "L1TriggerConfig/GctConfigProducers/data/l1GctConfig.cfi"
