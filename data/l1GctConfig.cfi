@@ -3,30 +3,61 @@ es_module = L1GctConfigProducers {
    double L1CaloHtScaleLsbInGeV = 1.0
    double L1CaloJetZeroSuppressionThresholdInGeV = 5.0
 
-   # Coefficients for power series correction of jet energies by eta bin.
-   # Eta bins run from 0-10 with 0 being central and 7-10 in the HF.
-   # An empty vector gives (energy-out = energy-in)
+   # The CalibrationStyle should be either "PowerSeries" or "ORCAStyle"
+   string CalibrationStyle = "PowerSeries"
 
-   # These coefficients for non-tau jets
-   vdouble nonTauJetCalib0 = {}
-   vdouble nonTauJetCalib1 = {}
-   vdouble nonTauJetCalib2 = {}
-   vdouble nonTauJetCalib3 = {}
-   vdouble nonTauJetCalib4 = {}
-   vdouble nonTauJetCalib5 = {}
-   vdouble nonTauJetCalib6 = {}
-   vdouble nonTauJetCalib7 = {}
-   vdouble nonTauJetCalib8 = {}
-   vdouble nonTauJetCalib9 = {}
-   vdouble nonTauJetCalib10 = {}
+   PSet PowerSeriesCoefficients={
+     # Coefficients for power series correction of jet energies by eta bin.
+     # Eta bins run from 0-10 with 0 being central and 7-10 in the HF.
+     # An empty vector gives (energy-out = energy-in)
 
-   # These coefficients for tau jets
-   vdouble tauJetCalib0 = {}
-   vdouble tauJetCalib1 = {}
-   vdouble tauJetCalib2 = {}
-   vdouble tauJetCalib3 = {}
-   vdouble tauJetCalib4 = {}
-   vdouble tauJetCalib5 = {}
-   vdouble tauJetCalib6 = {}
+     # These coefficients for non-tau jets
+     vdouble nonTauJetCalib0 = {}
+     vdouble nonTauJetCalib1 = {}
+     vdouble nonTauJetCalib2 = {}
+     vdouble nonTauJetCalib3 = {}
+     vdouble nonTauJetCalib4 = {}
+     vdouble nonTauJetCalib5 = {}
+     vdouble nonTauJetCalib6 = {}
+     vdouble nonTauJetCalib7 = {}
+     vdouble nonTauJetCalib8 = {}
+     vdouble nonTauJetCalib9 = {}
+     vdouble nonTauJetCalib10 = {}
+
+     # These coefficients for tau jets
+     vdouble tauJetCalib0 = {}
+     vdouble tauJetCalib1 = {}
+     vdouble tauJetCalib2 = {}
+     vdouble tauJetCalib3 = {}
+     vdouble tauJetCalib4 = {}
+     vdouble tauJetCalib5 = {}
+     vdouble tauJetCalib6 = {}
+  }
+
+  PSet OrcaStyleCoefficients={
+     # Coefficients for ORCA style correction of jet energies by eta bin.
+     # Eta bins run from 0-10 with 0 being central and 7-10 in the HF.
+
+     # These coefficients for non-tau jets
+     vdouble nonTauJetCalib0 = {47.4, -20.7, 0.7922,  9.53E-5}
+     vdouble nonTauJetCalib1 = {49.4, -22.5, 0.7867,  9.60E-5}
+     vdouble nonTauJetCalib2 = {47.1, -22.2, 0.7645, 12.09E-5}
+     vdouble nonTauJetCalib3 = {49.3, -22.9, 0.7331, 12.21E-5}
+     vdouble nonTauJetCalib4 = {48.2, -24.5, 0.7706, 12.80E-5}
+     vdouble nonTauJetCalib5 = {42.0, -23.9, 0.7945, 14.58E-5}
+     vdouble nonTauJetCalib6 = {33.8, -22.1, 0.8202, 14.03E-5}
+     vdouble nonTauJetCalib7 = {17.1,  -6.6, 0.6958,  6.88E-5}
+     vdouble nonTauJetCalib8 = {13.1,  -4.5, 0.7071,  7.26E-5}
+     vdouble nonTauJetCalib9 = {12.4,  -3.8, 0.6558, 48.90E-5}
+     vdouble nonTauJetCalib10 = {9.3,   1.3, 0.2719, 341.8E-5}
+
+     # These coefficients for tau jets
+     vdouble tauJetCalib0 = {47.4, -20.7, 0.7922,  9.53E-5}
+     vdouble tauJetCalib1 = {49.4, -22.5, 0.7867,  9.60E-5}
+     vdouble tauJetCalib2 = {47.1, -22.2, 0.7645, 12.09E-5}
+     vdouble tauJetCalib3 = {49.3, -22.9, 0.7331, 12.21E-5}
+     vdouble tauJetCalib4 = {48.2, -24.5, 0.7706, 12.80E-5}
+     vdouble tauJetCalib5 = {42.0, -23.9, 0.7945, 14.58E-5}
+     vdouble tauJetCalib6 = {33.8, -22.1, 0.8202, 14.03E-5}
+  }
 }
-
