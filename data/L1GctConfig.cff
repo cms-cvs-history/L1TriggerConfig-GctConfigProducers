@@ -1,3 +1,9 @@
+es_source l1GctParamsRecords = EmptyESSource {
+    string recordName = "L1GctJetFinderParamsRcd"
+    vuint32 firstValid = { 1 }
+    bool iovIsRunNotTime = false
+}
+
 es_source l1GctConfigRecords = EmptyESSource {
     string recordName = "L1GctJetCalibFunRcd"
     vuint32 firstValid = { 1 }

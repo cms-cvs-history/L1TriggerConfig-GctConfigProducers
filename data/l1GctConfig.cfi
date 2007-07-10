@@ -1,5 +1,8 @@
 es_module = L1GctConfigProducers {
 
+   uint32 JetFinderCentralJetSeed = 1
+   uint32 JetFinderForwardJetSeed = 1
+
    double L1CaloHtScaleLsbInGeV = 1.0
    double L1CaloJetZeroSuppressionThresholdInGeV = 5.0
 
