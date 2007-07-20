@@ -1,13 +1,13 @@
 es_source l1GctParamsRecords = EmptyESSource {
     string recordName = "L1GctJetFinderParamsRcd"
     vuint32 firstValid = { 1 }
-    bool iovIsRunNotTime = false
+    bool iovIsRunNotTime = true
 }
 
 es_source l1GctConfigRecords = EmptyESSource {
     string recordName = "L1GctJetCalibFunRcd"
     vuint32 firstValid = { 1 }
-    bool iovIsRunNotTime = false
+    bool iovIsRunNotTime = true
 }
 
 include "L1TriggerConfig/GctConfigProducers/data/l1GctConfig.cfi"
