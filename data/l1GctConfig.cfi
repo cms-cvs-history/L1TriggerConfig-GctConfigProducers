@@ -7,7 +7,7 @@ es_module = L1GctConfigProducers {
    double L1CaloJetZeroSuppressionThresholdInGeV = 5.0
 
    # The CalibrationStyle should be either "PowerSeries" or "ORCAStyle"
-   string CalibrationStyle = "PowerSeries"
+   string CalibrationStyle = "ORCAStyle"
 
    PSet PowerSeriesCoefficients={
      # Coefficients for power series correction of jet energies by eta bin.
