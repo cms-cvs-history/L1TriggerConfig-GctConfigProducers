@@ -1,0 +1,21 @@
+block jcSetup1 = {
+  VPSet jetCountersPositiveWheel = {
+    { vstring cutDescriptionList = { "JC_minRank_5" } },     # Jet rank threshold cut
+    { vstring cutDescriptionList = { "JC_centralEta_5" } },  # Jets in central eta bins
+    { vstring cutDescriptionList = { "JC_forwardEta_5" } },  # Jets in forward bins, one-sided cut
+    { vstring cutDescriptionList = { "JC_nullCutType" } },   # Only count at negative eta
+    { vstring cutDescriptionList = { "JC_phiWindow_2_5" } }, # Jets in phi window
+    { vstring cutDescriptionList = { "JC_minRank_5",
+                                     "JC_centralEta_7" } }   # Cut on both rank and eta position
+  }
+  VPSet jetCountersNegativeWheel = {
+    { vstring cutDescriptionList = { "JC_minRank_5" } },     # Jet rank threshold cut
+    { vstring cutDescriptionList = { "JC_centralEta_5" } },  # Jets in central eta bins
+    { vstring cutDescriptionList = { "JC_nullCutType" } },   # Only count at positive eta
+    { vstring cutDescriptionList = { "JC_forwardEta_5" } },  # Jets in forward bins, one-sided cut
+    { vstring cutDescriptionList = { "JC_phiWindow_2_5" } }, # Jets in phi window
+    { vstring cutDescriptionList = { "JC_minRank_5",
+                                     "JC_centralEta_7" } }   # Cut on both rank and eta position
+  }
+}
+

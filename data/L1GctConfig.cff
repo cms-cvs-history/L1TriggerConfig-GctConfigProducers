@@ -10,4 +10,16 @@ es_source l1GctConfigRecords = EmptyESSource {
     bool iovIsRunNotTime = true
 }
 
+es_source l1GctJcPosParsRecords = EmptyESSource {
+    string recordName = "L1GctJetCounterPositiveEtaRcd"
+    vuint32 firstValid = { 1 }
+    bool iovIsRunNotTime = true
+}
+
+es_source l1GctJcNegParsRecords = EmptyESSource {
+    string recordName = "L1GctJetCounterNegativeEtaRcd"
+    vuint32 firstValid = { 1 }
+    bool iovIsRunNotTime = true
+}
+
 include "L1TriggerConfig/GctConfigProducers/data/l1GctConfig.cfi"

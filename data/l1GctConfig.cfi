@@ -1,3 +1,5 @@
+include "L1TriggerConfig/GctConfigProducers/data/l1GctJetCounterConfig.cfi"
+
 es_module = L1GctConfigProducers {
 
    uint32 JetFinderCentralJetSeed = 1
@@ -63,4 +65,7 @@ es_module = L1GctConfigProducers {
      vdouble tauJetCalib5 = {42.0, -23.9, 0.7945, 14.58E-5}
      vdouble tauJetCalib6 = {33.8, -22.1, 0.8202, 14.03E-5}
   }
+
+  PSet jetCounterSetup = { using jcSetup1 }
+
 }
