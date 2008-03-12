@@ -8,6 +8,8 @@ es_module = L1GctConfigProducers {
    double L1CaloHtScaleLsbInGeV = 1.0
    double L1CaloJetZeroSuppressionThresholdInGeV = 5.0
 
+   bool ConvertEtValuesToEnergy = false
+
    # The CalibrationStyle should be either "PowerSeries", "ORCAStyle" or "PiecewiseCubic"
    string CalibrationStyle = "ORCAStyle"
 
