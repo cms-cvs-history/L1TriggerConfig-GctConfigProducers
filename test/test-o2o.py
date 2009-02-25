@@ -21,8 +21,12 @@ process.L1TriggerKeyDummy.gctKey = cms.string('Default')
 process.load("L1TriggerConfig.GctConfigProducers.L1GctTSCObjectKeysOnline_cfi")
 process.L1GctTSCObjectKeysOnline.subsystemLabel = cms.string('')
 
+process.load("L1TriggerConfig.GctConfigProducers.L1GctRSObjectKeysOnline_cfi")
+process.L1GctRSObjectKeysOnline.subsystemLabel = cms.string('')
+
 # Get configuration data from OMDS.  This is the subclass of L1ConfigOnlineProdBase.
 process.load("L1TriggerConfig.GctConfigProducers.L1GctJetFinderParamsOnline_cfi")
+process.load("L1TriggerConfig.GctConfigProducers.L1GctChannelMaskOnline_cfi")
 
 process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(1)
@@ -38,6 +42,14 @@ process.getter = cms.EDAnalyzer("EventSetupRecordDataGetter",
    toGet = cms.VPSet(cms.PSet(
    record = cms.string('L1GctJetFinderParamsRcd'),
    data = cms.vstring('L1GctJetFinderParams')
+   )),
+   verbose = cms.untracked.bool(True)
+)
+
+process.getter = cms.EDAnalyzer("EventSetupRecordDataGetter",
+   toGet = cms.VPSet(cms.PSet(
+   record = cms.string('L1GctChannelMaskRcd'),
+   data = cms.vstring('L1GctChannelMask')
    )),
    verbose = cms.untracked.bool(True)
 )
