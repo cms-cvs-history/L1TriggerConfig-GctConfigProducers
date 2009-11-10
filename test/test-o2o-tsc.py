@@ -25,6 +25,7 @@ process.L1GctTSCObjectKeysOnline.subsystemLabel = cms.string('')
 process.load("L1TriggerConfig.GctConfigProducers.L1GctJetFinderParamsOnline_cfi")
 process.load("L1TriggerConfig.L1ScalesProducers.L1JetEtScaleOnline_cfi")
 process.load("L1TriggerConfig.L1ScalesProducers.L1HfRingEtScaleOnline_cfi")
+process.load("L1TriggerConfig.L1ScalesProducers.L1HtMissScaleOnline_cfi")
 
 process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32(1)
@@ -68,9 +69,18 @@ process.getter4 = cms.EDAnalyzer("EventSetupRecordDataGetter",
    verbose = cms.untracked.bool(True)
 )
 
+process.getter5 = cms.EDAnalyzer("EventSetupRecordDataGetter",
+   toGet = cms.VPSet(cms.PSet(
+   record = cms.string('L1HtMissScaleRcd'),
+   data = cms.vstring('L1CaloEtScale')
+   )),
+   verbose = cms.untracked.bool(True)
+)
+
 process.p = cms.Path(
     process.getter1 +
     process.getter2 +
     process.getter3 +
-    process.getter4
+    process.getter4 +
+    process.getter5
 )
