@@ -1,10 +1,20 @@
 import FWCore.ParameterSet.Config as cms
 
+import sys
+import os
+
+# arguments
+if (len(sys.argv)>1) :
+    key=str(sys.argv[2])
+else :
+    key='Default'
+
+# CMSSW config
 process = cms.Process("L1ConfigWritePayloadDummy")
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 process.MessageLogger.cout.placeholder = cms.untracked.bool(False)
-process.MessageLogger.cout.threshold = cms.untracked.string('INFO')
-process.MessageLogger.debugModules = cms.untracked.vstring('*')
+process.MessageLogger.cout.threshold = cms.untracked.string('DEBUG')
+process.MessageLogger.debugModules = cms.untracked.vstring('l1GctConfigDump')
 
 # Generate dummy L1TriggerKeyList
 process.load("CondTools.L1Trigger.L1TriggerKeyListDummy_cff")
@@ -15,7 +25,7 @@ process.L1TriggerKeyDummy.objectKeys = cms.VPSet()
 process.L1TriggerKeyDummy.label = cms.string('SubsystemKeysOnly')
 
 # xxxKey = csctfKey, dttfKey, rpcKey, gmtKey, rctKey, gctKey, gtKey, or tsp0Key
-process.L1TriggerKeyDummy.gctKey = cms.string('Default')
+process.L1TriggerKeyDummy.gctKey = cms.string(key)
 
 # Subclass of L1ObjectKeysOnlineProdBase.
 process.load("L1TriggerConfig.GctConfigProducers.L1GctTSCObjectKeysOnline_cfi")
@@ -77,10 +87,13 @@ process.getter5 = cms.EDAnalyzer("EventSetupRecordDataGetter",
    verbose = cms.untracked.bool(True)
 )
 
+process.load('L1TriggerConfig/GctConfigProducers.l1GctConfigDump_cfi')
+
 process.p = cms.Path(
-    process.getter1 +
-    process.getter2 +
-    process.getter3 +
-    process.getter4 +
-    process.getter5
+#    process.getter1 +
+#    process.getter2 +
+#    process.getter3 +
+#    process.getter4 +
+#    process.getter5 +
+    process.l1GctConfigDump
 )
