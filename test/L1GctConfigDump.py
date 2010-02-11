@@ -1,5 +1,21 @@
 import FWCore.ParameterSet.Config as cms
 
+# options
+import FWCore.ParameterSet.VarParsing as VarParsing
+options = VarParsing.VarParsing()
+options.register('globalTag',
+                 'IDEAL', #default value
+                 VarParsing.VarParsing.multiplicity.singleton,
+                 VarParsing.VarParsing.varType.string,
+                 "Global Tag")
+options.register('sqlite',
+                 '', #default value
+                 VarParsing.VarParsing.multiplicity.singleton,
+                 VarParsing.VarParsing.varType.string,
+                 "SQLite file")
+options.parseArguments()
+
+# the job
 process = cms.Process("L1GctConfigDump")
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
 process.MessageLogger.cout.placeholder = cms.untracked.bool(False)
@@ -17,8 +33,14 @@ process.source = cms.Source("EmptyIOVSource",
     interval = cms.uint64(1)
 )
 
-process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
-process.GlobalTag.globaltag = 'IDEAL_30X::All'
+if (options.globalTag != "") :
+    process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
+    process.GlobalTag.globaltag = options.globalTag+"::All"
+
+if (options.sqlite != "") :
+    process.load("CondTools.L1Trigger.L1CondDBSource_cff")
+    print "Can't read SQLite files yet"
+
 
 process.load("L1TriggerConfig.GctConfigProducers.l1GctConfigDump_cfi")
 
